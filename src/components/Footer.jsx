@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Left Side: Text and Copyright */}
           <div className="mb-4 sm:mb-0">
             <p className="text-sm">
-              &copy; {new Date().getFullYear()} Your Name. All rights reserved.
+              &copy; {new Date().getFullYear()} prathmesh. All rights reserved.
             </p>
           </div>
 

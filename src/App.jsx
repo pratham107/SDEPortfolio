@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import Loader from "./components/Loader";
 
 function App() {
-
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -12,12 +11,14 @@ function App() {
     }, 2400);
   }, []);
 
-
   return (
-    <div className="flex justify-center items-center lg:justify-center lg:items-center">
-      <div className="w-full max-w-4xl p-4">
-        {loading ? <Loader/> : <Canvas />}
-        
+    <div
+      className={`${
+        loading ? "w-screen h-screen" : ""
+      } flex justify-center items-center`}
+    >
+      <div className={`w-full ${loading ? "" : "max-w-4xl p-4"}`}>
+        {loading ? <Loader /> : <Canvas />}
       </div>
     </div>
   );
