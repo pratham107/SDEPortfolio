@@ -7,10 +7,8 @@ import { FaAnglesDown } from "react-icons/fa6";
 import { MdOutlineConnectWithoutContact } from "react-icons/md";
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -46,38 +44,49 @@ const Info = () => {
           <Button variant="outline" className="border rounded-2xl border-blue-400">
             Download CV <FaAnglesDown />
           </Button>
-          <Drawer className="bg-black">
-            <DrawerTrigger asChild>
-              <Button variant="outline" className="border rounded-2xl border-blue-400">
-                Hire me <MdOutlineConnectWithoutContact />
-              </Button>
-            </DrawerTrigger>
+          <Drawer>
+      <DrawerTrigger asChild>
+        <Button variant="outline" className="border rounded-2xl border-blue-400">
+          Hire me <MdOutlineConnectWithoutContact className="ml-2" />
+        </Button>
+      </DrawerTrigger>
 
-            <DrawerContent>
-              <div className="mx-auto w-full max-w-sm">
-                <DrawerHeader>
-                  <DrawerTitle>Contact Me</DrawerTitle>
-                  <DrawerDescription>Let’s build something great together.</DrawerDescription>
-                </DrawerHeader>
+      <DrawerContent className="bg-white dark:bg-zinc-900">
+        <div className="mx-auto w-full max-w-md px-6 py-4">
+          <DrawerHeader>
+            <DrawerTitle className="text-xl font-bold text-gray-800 dark:text-white">Contact Me</DrawerTitle>
+            <DrawerDescription className="text-sm text-gray-600 dark:text-gray-300">
+              Let’s build something great together. Feel free to connect 👇
+            </DrawerDescription>
+          </DrawerHeader>
 
-                {/* You can replace this with your contact form or info */}
-                <div className="p-4">
-                  <p className="text-center text-gray-600 flex gap-6">
-                    <Badge className="flex" ><a href="mailto:pbhopale107@gmail.com"><SiGmail/> pbhopale107@gmail.com</a></Badge>
-                    <Badge className="flex"><a href="mailto:work.prathm@gmail.com"><SiGmail/>work.prathm@gmail.com</a></Badge>
-                    <Badge className="flex"><a href="linkedin.com/in/prathmesh-bhopale-70b091212"><BsLinkedin/>  LinkedIn</a></Badge>
-                  </p>
-                </div>
+          <div className="mt-6 flex flex-col gap-4 items-center">
+            <Badge className="px-4 py-2 bg-red-500 text-white hover:bg-red-600">
+              <a href="mailto:pbhopale107@gmail.com" className="flex items-center gap-2">
+                <SiGmail /> pbhopale107@gmail.com
+              </a>
+            </Badge>
 
-                {/* <DrawerFooter>
-                  <Button>Submit</Button>
-                  <DrawerClose asChild>
-                    <Button variant="outline">Cancel</Button>
-                  </DrawerClose>
-                </DrawerFooter> */}
-              </div>
-            </DrawerContent>
-          </Drawer>
+            <Badge className="px-4 py-2 bg-red-500 text-white hover:bg-red-600">
+              <a href="mailto:work.prathm@gmail.com" className="flex items-center gap-2">
+                <SiGmail /> work.prathm@gmail.com
+              </a>
+            </Badge>
+
+            <Badge className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700">
+              <a
+                href="https://linkedin.com/in/prathmesh-bhopale-70b091212"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2"
+              >
+                <BsLinkedin /> LinkedIn
+              </a>
+            </Badge>
+          </div>
+        </div>
+      </DrawerContent>
+    </Drawer>
         </div>
       </div>
 

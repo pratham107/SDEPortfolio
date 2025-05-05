@@ -2,9 +2,11 @@ import Canvas from "./components/Canvas";
 import { useEffect, useState } from "react";
 import Loader from "./components/Loader";
 import AnimatedCursor from "react-animated-cursor"
+import { useSelector} from "react-redux";
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const theme = useSelector((state) => state.theme.theme);
 
   useEffect(() => {
     setTimeout(() => {
@@ -36,9 +38,9 @@ function App() {
       ]}
       />
       <div
-      className={`${
+      className={`flex justify-center items-center ${
         loading ? "w-screen h-screen" : ""
-      } flex justify-center items-center`}
+      } ${theme === "dark" ? "bg-black" : "bg-white"}`}
     >
       <div className={`w-full ${loading ? "" : "max-w-4xl p-4"}`}>
         {loading ? <Loader /> : <Canvas />}
