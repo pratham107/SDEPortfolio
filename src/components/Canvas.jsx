@@ -13,7 +13,7 @@ import TechStack from './TechStack';
 const Canvas = () => {
   return (
     <div className="min-h-screen relative">
-        <Info />
+          <Info />
         <div className="about mt-8">
             <About/>
         </div>

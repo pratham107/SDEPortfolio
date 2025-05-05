@@ -1,5 +1,20 @@
 import { motion } from 'framer-motion'
 import TypewriterEffect from "./TypeWriter"
+import { Badge } from './ui/badge'
+import Badges from './Badges'
+import { Button } from './ui/button'
+import { FaAnglesDown } from "react-icons/fa6";
+import { MdOutlineConnectWithoutContact } from "react-icons/md";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
 
 const Info = () => {
   return (
@@ -21,6 +36,46 @@ const Info = () => {
           Very active on Twitter.
         </h3>
         <TypewriterEffect />
+
+        <div className="mt-3">
+          <Badges />
+        </div>
+        <div className="mt-3 flex gap-2">
+          <Button variant="outline" className="border rounded-2xl border-blue-400">
+            Download CV <FaAnglesDown />
+          </Button>
+          <Drawer className="bg-black">
+            <DrawerTrigger asChild>
+              <Button variant="outline" className="border rounded-2xl border-blue-400">
+                Hire me <MdOutlineConnectWithoutContact />
+              </Button>
+            </DrawerTrigger>
+
+            <DrawerContent>
+              <div className="mx-auto w-full max-w-sm">
+                <DrawerHeader>
+                  <DrawerTitle>Contact Me</DrawerTitle>
+                  <DrawerDescription>Let’s build something great together.</DrawerDescription>
+                </DrawerHeader>
+
+                {/* You can replace this with your contact form or info */}
+                <div className="p-4">
+                  <p className="text-center text-gray-600">
+                    Email: pbhopale107@gmail.com / work.prathm@gmail.com <br />
+                    LinkedIn: linkedin.com/in/prathamesh
+                  </p>
+                </div>
+
+                <DrawerFooter>
+                  <Button>Submit</Button>
+                  <DrawerClose asChild>
+                    <Button variant="outline">Cancel</Button>
+                  </DrawerClose>
+                </DrawerFooter>
+              </div>
+            </DrawerContent>
+          </Drawer>
+        </div>
       </div>
 
       {/* Image Section */}
@@ -37,3 +92,4 @@ const Info = () => {
 }
 
 export default Info
+
