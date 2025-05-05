@@ -15,6 +15,8 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer"
+import { BsLinkedin } from 'react-icons/bs'
+import { SiGmail } from 'react-icons/si'
 
 const Info = () => {
   return (
@@ -60,18 +62,19 @@ const Info = () => {
 
                 {/* You can replace this with your contact form or info */}
                 <div className="p-4">
-                  <p className="text-center text-gray-600">
-                    Email: pbhopale107@gmail.com / work.prathm@gmail.com <br />
-                    LinkedIn: linkedin.com/in/prathamesh
+                  <p className="text-center text-gray-600 flex gap-6">
+                    <Badge className="flex" ><a href="mailto:pbhopale107@gmail.com"><SiGmail/> pbhopale107@gmail.com</a></Badge>
+                    <Badge className="flex"><a href="mailto:work.prathm@gmail.com"><SiGmail/>work.prathm@gmail.com</a></Badge>
+                    <Badge className="flex"><a href="linkedin.com/in/prathmesh-bhopale-70b091212"><BsLinkedin/>  LinkedIn</a></Badge>
                   </p>
                 </div>
 
-                <DrawerFooter>
+                {/* <DrawerFooter>
                   <Button>Submit</Button>
                   <DrawerClose asChild>
                     <Button variant="outline">Cancel</Button>
                   </DrawerClose>
-                </DrawerFooter>
+                </DrawerFooter> */}
               </div>
             </DrawerContent>
           </Drawer>
