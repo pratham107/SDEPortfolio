@@ -21,7 +21,7 @@ const Info = () => {
         {/* Image Section */}
         <div className="image mt-6 lg:mt-0">
           <img
-            src="https://picsum.photos/200/300?random=2"
+            src="https://i.ibb.co/v6pnmvH3/Chat-GPT-Image-Apr-24-2025-10-28-24-PM.png"
             alt="Profile Pic"
             className="rounded-full w-32 h-32 object-cover shadow-lg transition-all hover:scale-110 hover:shadow-xl ease-in-out duration-300"
           />
