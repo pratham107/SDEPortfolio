@@ -1,9 +1,13 @@
 import React from 'react'
 import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa'
 
-const Footer = () => {
+const Footer = ({ theme }) => {
   return (
-    <footer className="text-black py-8">
+    <footer
+    className={`py-8 ${
+      theme === 'light' ? 'bg-white text-black' : 'bg-black text-white'
+    }`}
+  >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex flex-col items-center justify-between sm:flex-row">
           {/* Left Side: Text and Copyright */}

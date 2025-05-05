@@ -8,6 +8,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const theme = useSelector((state) => state.theme.theme);
 
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -43,7 +44,7 @@ function App() {
       } ${theme === "dark" ? "bg-black" : "bg-white"}`}
     >
       <div className={`w-full ${loading ? "" : "max-w-4xl p-4"}`}>
-        {loading ? <Loader /> : <Canvas />}
+        {loading ? <Loader /> : <Canvas theme={theme} />}
       </div>
     </div>
     </>

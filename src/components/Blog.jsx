@@ -28,10 +28,10 @@ const blogs = [
   },
 ]
 
-const Blog = () => {
+const Blog = ({theme}) => {
   return (
     <section className="p-6">
-      <h2 className="text-xl font-bold mb-6 hover:underline">Blogs</h2>
+      <h2 className={`text-xl font-bold mb-6 hover:underline ${theme === 'light' ? 'text-black' : 'text-white'}`}>Blogs</h2>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {blogs.map((blog, index) => (
           <motion.div
@@ -41,7 +41,11 @@ const Blog = () => {
             transition={{ delay: index * 0.1, duration: 0.4 }}
             whileHover={{ scale: 1.03 }}
           >
-            <Card className="shadow hover:shadow-lg transition min-h-[300px] max-w-[300px] flex flex-col">
+            <Card
+                className={`shadow hover:shadow-lg transition min-h-[300px] max-w-[300px] flex flex-col ${
+                    theme === 'light' ? 'bg-white text-black' : 'bg-black text-white'
+                }`}
+                >
               <CardHeader>
                 <CardTitle>{blog.title}</CardTitle>
                 <p className="text-sm text-muted-foreground">{blog.date}</p>

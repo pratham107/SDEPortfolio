@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-const Experience = () => {
+const Experience = ({theme}) => {
   return (
     <motion.section
       className="p-4"
@@ -20,7 +20,7 @@ const Experience = () => {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       viewport={{ once: true }}
     >
-      <h4 className="text-xl font-bold font-sans hover:underline mb-4">
+    <h4 className={`text-xl font-bold font-sans mb-4 hover:underline ${theme === 'light' ? 'text-black' : 'text-white'}`}>
         Experience
       </h4>
 
@@ -30,17 +30,26 @@ const Experience = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true }}
       >
-        <Card className="shadow-md border rounded-2xl">
+        <Card className={`shadow-md border rounded-2xl ${theme === 'light' ? 'bg-white text-black' : 'bg-black text-white'}`}>
           <CardHeader>
             <CardTitle className="text-lg">MVD-Tech</CardTitle>
             <CardDescription>
-              <Badge variant="secondary" className="bg-black text-white">
+            <Badge
+                variant="secondary"
+                className={`${
+                    theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'
+                }`}
+                >
                 React.js Developer
               </Badge>
             </CardDescription>
           </CardHeader>
 
-          <CardContent className="text-sm text-gray-700">
+          <CardContent
+            className={`text-sm ${
+                theme === 'light' ? 'text-gray-700' : 'text-gray-300'
+            }`}
+            >
             <p>
               <strong>Roles & Responsibilities:</strong> <br />
               - Developing and maintaining responsive user interfaces. <br />
@@ -49,7 +58,11 @@ const Experience = () => {
             </p>
           </CardContent>
 
-          <CardFooter className="text-xs text-gray-500">
+          <CardFooter
+            className={`text-xs ${
+                theme === 'light' ? 'text-gray-500' : 'text-gray-400'
+            }`}
+            >
             June 2024 – Present
           </CardFooter>
         </Card>

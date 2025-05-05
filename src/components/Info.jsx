@@ -16,7 +16,9 @@ import {
 import { BsLinkedin } from 'react-icons/bs'
 import { SiGmail } from 'react-icons/si'
 
-const Info = () => {
+// eslint-disable-next-line react/prop-types
+const Info = ({ theme }) => {
+  console.log(theme)
   return (
     <motion.section
       initial={{ opacity: 0, y: 30 }}
@@ -27,10 +29,10 @@ const Info = () => {
     >
       {/* Text Section */}
       <div className="text-center lg:text-left space-y-4 max-w-xl">
-        <h1 className="text-3xl font-bold text-gray-800">
+      <h1 className={`text-3xl font-bold ${theme === 'light' ? 'text-gray-800' : 'text-white'}`}>
           Hi, I'm Prathmesh <span className="wave text-blue-500">👋</span>
         </h1>
-        <h3 className="text-md text-gray-600">
+        <h3 className={`text-md ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
           Software Engineer turned Entrepreneur. <br />
           I love building things and helping people. <br />
           Very active on Twitter.

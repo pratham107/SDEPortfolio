@@ -28,10 +28,10 @@ const linkedinPosts = [
   },
 ]
 
-const LinkedInPost = () => {
+const LinkedInPost = ({theme}) => {
   return (
     <section className="p-6">
-      <h2 className="text-xl font-bold mb-6 hover:underline">LinkedIn Posts</h2>
+      <h2 className={`text-xl font-bold mb-6 hover:underline ${theme === 'light' ? 'text-black' : 'text-white'}`}>LinkedIn Posts</h2>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {linkedinPosts.map((post, index) => (
           <motion.div
@@ -41,7 +41,11 @@ const LinkedInPost = () => {
             transition={{ delay: index * 0.1, duration: 0.4 }}
             whileHover={{ scale: 1.03 }}
           >
-            <Card className="shadow hover:shadow-lg transition min-h-[300px] max-w-[300px] flex flex-col">
+          <Card
+            className={`shadow hover:shadow-lg transition min-h-[300px] max-w-[300px] flex flex-col ${
+                theme === 'light' ? 'bg-white text-black' : 'bg-black text-white'
+            }`}
+            >
               <CardHeader>
                 <CardTitle>{post.title}</CardTitle>
                 <p className="text-sm text-muted-foreground">{post.date}</p>

@@ -10,30 +10,31 @@ import TechStack from './TechStack';
 
 
 
-const Canvas = () => {
+// eslint-disable-next-line react/prop-types
+const Canvas = ({ theme }) => {
   return (
     <div className="min-h-screen relative">
-          <Info />
+          <Info theme={theme}/>
         <div className="about mt-8">
-            <About/>
+            <About theme={theme}/>
         </div>
         <div className="about mt-8">
-            <Experience/>
+            <Experience theme={theme}/>
         </div>
         <div className="about mt-8">
-           <TechStack/>
+           <TechStack theme={theme}/>
         </div>
         <div className="about mt-8">
-           <Projects/>
+           <Projects theme={theme}/>
         </div>
         <div className="about mt-8">
-           <LinkedInPost/>
+           <LinkedInPost theme={theme}/>
         </div>
         <div className="about mt-8">
-           <Blog/>
+           <Blog theme={theme}/>
         </div>
         <div className="about mt-8">
-           <Footer/>
+           <Footer theme={theme}/>
         </div>
         {/* <div className="orbitingCircle mt-56">
             <OribitingCircle/>
@@ -43,7 +44,7 @@ const Canvas = () => {
 
         {/* Align FloatNav at the bottom center and make it sticky */}
         <div className="flex justify-center items-end fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4 lg:mb-8">
-  <FloatNav />
+  <FloatNav theme={theme} />
 </div>
 
     </div>

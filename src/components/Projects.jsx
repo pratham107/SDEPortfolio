@@ -31,10 +31,16 @@ const projects = [
   },
 ]
 
-const Project = () => {
+const Project = ({theme}) => {
   return (
     <section className="p-6">
-      <h2 className="text-xl font-bold mb-6 hover:underline">Projects</h2>
+      <h2
+        className={`text-xl font-bold mb-6 hover:underline ${
+            theme === 'light' ? 'text-black' : 'text-white'
+        }`}
+        >
+            Projects
+        </h2>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
           <motion.div
@@ -44,10 +50,14 @@ const Project = () => {
             transition={{ delay: index * 0.1, duration: 0.4 }}
             whileHover={{ scale: 1.03 }}
           >
-            <Card className="shadow hover:shadow-lg transition min-h-[300px] max-w-[300px] flex flex-col">
+           <Card
+            className={`shadow hover:shadow-lg transition min-h-[300px] max-w-[300px] flex flex-col ${
+                theme === 'light' ? 'bg-white text-black' : 'bg-black text-white'
+            }`}
+            >
               <CardHeader>
                 <CardTitle>{project.title}</CardTitle>
-                <div className="flex flex-wrap gap-2 mt-2">
+                <div className="flex flex-wrap gap-2 mt-4">
                   {project.tech.map((tech) => (
                     <Badge key={tech} variant="secondary" className="capitalize">
                       {tech}

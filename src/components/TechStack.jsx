@@ -59,15 +59,24 @@ const techStackGroups = [
   },
 ]
 
-const TechStack = () => {
+//eslint-disable-next-line
+const TechStack = ({theme}) => {
   return (
     <section className="p-6">
-      <h2 className="text-xl font-bold mb-6 hover:underline">Tech Stack</h2>
+      <h2
+  className={`text-xl font-bold mb-6 hover:underline ${
+    theme === 'light' ? 'text-black' : 'text-white'
+  }`}
+>Tech Stack</h2>
 
       <Accordion type="multiple" className="w-full space-y-4">
         {techStackGroups.map((group) => (
           <AccordionItem key={group.title} value={group.title}>
-            <AccordionTrigger className="text-lg font-semibold">
+           <AccordionTrigger
+            className={`text-lg font-semibold ${
+                theme === 'light' ? 'text-black' : 'text-white'
+            }`}
+            >
               {group.title}
             </AccordionTrigger>
             <AccordionContent>
@@ -75,7 +84,8 @@ const TechStack = () => {
                 {group.stacks.map((stack) => (
                   <div
                     key={stack.name}
-                    className="bg-white p-4 rounded-xl shadow hover:shadow-md transition"
+                    className={`p-4 rounded-xl shadow hover:shadow-md transition ${theme === 'light' ? 'bg-white text-black' : 'bg-black text-white border border-white'}`}
+
                   >
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
