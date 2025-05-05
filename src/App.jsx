@@ -5,6 +5,7 @@ import AnimatedCursor from "react-animated-cursor"
 import { useSelector} from "react-redux";
 import ScrollIndicator from "./components/ScrollIndicator";
 
+
 function App() {
   const [loading, setLoading] = useState(true);
   const theme = useSelector((state) => state.theme.theme);

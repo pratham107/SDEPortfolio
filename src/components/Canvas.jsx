@@ -44,8 +44,8 @@ const Canvas = ({ theme }) => {
 
         {/* Align FloatNav at the bottom center and make it sticky */}
         <div className="flex justify-center items-end fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4 lg:mb-8">
-  <FloatNav theme={theme} />
-</div>
+          <FloatNav theme={theme} />
+         </div>
 
     </div>
   )
