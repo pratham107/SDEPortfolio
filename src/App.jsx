@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Loader from "./components/Loader";
 import AnimatedCursor from "react-animated-cursor"
 import { useSelector} from "react-redux";
+import ScrollIndicator from "./components/ScrollIndicator";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -17,6 +18,7 @@ function App() {
 
   return (
     <>
+      <ScrollIndicator />
       <AnimatedCursor 
       innerSize={8}
       outerSize={8}
