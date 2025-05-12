@@ -11,6 +11,7 @@ import {
 } from "react-icons/fa"
 import {
   SiNextdotjs, SiExpress, SiMysql, SiPostgresql, SiTailwindcss, SiJsonwebtokens,
+  SiTypescript,
 } from "react-icons/si"
 import { TbApi } from "react-icons/tb"
 import { motion } from "framer-motion"
@@ -22,6 +23,7 @@ const techStackGroups = [
       { name: "HTML5", icon: <FaHtml5 className="text-orange-600" />, level: 95 },
       { name: "CSS3", icon: <FaCss3Alt className="text-blue-500" />, level: 90 },
       { name: "JavaScript", icon: <FaJs className="text-yellow-400" />, level: 93 },
+      { name: "TypeScript", icon: <SiTypescript className="text-blue-500" />, level: 80 },
       { name: "React.js", icon: <FaReact className="text-cyan-400" />, level: 92 },
       { name: "Next.js", icon: <SiNextdotjs className="text-black" />, level: 85 },
       { name: "Tailwind CSS", icon: <SiTailwindcss className="text-teal-400" />, level: 90 },

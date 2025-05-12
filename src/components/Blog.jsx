@@ -23,8 +23,8 @@ const blogs = [
     title: "Building RESTful APIs with Node.js and Express.js",
     description:
       "This blog guides you through building scalable and secure RESTful APIs with Node.js and Express.js.",
-    link: "https://yourblog.com/building-restful-apis-nodejs-express",
-    date: "February 2025",
+    link: "https://javascript-best-practices-for-2025.hashnode.dev/javascript-best-practices-for-2025-write-clean-modern-and-performant-code",
+    date: "May 2025",
   },
 ]
 

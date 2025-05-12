@@ -69,7 +69,7 @@ const Project = ({theme}) => {
                 <p className="mb-4 text-sm text-muted-foreground">{project.description}</p>
               </CardContent>
               <div className="flex gap-4 p-4">
-                {project.github && (
+                {/* {project.github && (
                   <a
                     href={project.github}
                     target="_blank"
@@ -78,8 +78,8 @@ const Project = ({theme}) => {
                   >
                     <FaGithub /> Code
                   </a>
-                )}
-                {project.live && (
+                )} */}
+                {/* {project.live && (
                   <a
                     href={project.live}
                     target="_blank"
@@ -88,7 +88,7 @@ const Project = ({theme}) => {
                   >
                     <FaExternalLinkAlt /> Live
                   </a>
-                )}
+                )} */}
               </div>
             </Card>
           </motion.div>

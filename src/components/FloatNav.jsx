@@ -29,14 +29,14 @@ const FloatNav = () => {
         <CiViewList />
       </a>
       <a 
-        href="#"
+        href="https://www.linkedin.com/in/prathmesh-bhopale-70b091212"
         className="flex justify-center items-center text-white text-xl hover:text-gray-800 bg-transparent rounded-full w-10 h-10 flex justify-center items-center hover:bg-gray-200 transition-all duration-300"
       >
         <LiaLinkedinIn />
       </a>
       <div className="border-l-2 border-gray-300 h-10 ml-2 mr-2"></div>
       <a 
-        href="#"
+        href="https://github.com/pratham107"
         className="flex justify-center items-center text-white text-xl hover:text-gray-800 bg-transparent rounded-full w-10 h-10 flex justify-center items-center hover:bg-gray-200 transition-all duration-300"
       >
         <DiGithub />

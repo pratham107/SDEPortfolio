@@ -28,6 +28,7 @@ const linkedinPosts = [
   },
 ]
 
+// eslint-disable-next-line
 const LinkedInPost = ({theme}) => {
   return (
     <section className="p-6">
@@ -54,7 +55,7 @@ const LinkedInPost = ({theme}) => {
                 <p className="mb-4 text-sm text-muted-foreground">{post.description}</p>
               </CardContent>
               <div className="flex gap-4 p-4">
-                {post.link && (
+                {/* {post.link && (
                   <a
                     href={post.link}
                     target="_blank"
@@ -63,7 +64,7 @@ const LinkedInPost = ({theme}) => {
                   >
                     <FaExternalLinkAlt /> View Post
                   </a>
-                )}
+                )} */}
               </div>
             </Card>
           </motion.div>

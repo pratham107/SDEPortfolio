@@ -28,7 +28,7 @@ const Canvas = ({ theme }) => {
             <Experience theme={theme}/>
         </div>
         <div className="about mt-8">
-           <Education/>
+           <Education theme={theme}/>
         </div>
         
         <div className="about mt-8">
