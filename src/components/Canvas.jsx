@@ -8,7 +8,7 @@ import Info from './Info'
 import LinkedInPost from './LinkedInPost';
 import Projects from './Projects';
 import TechStack from './TechStack';
-import ThreeScene from './ThreeScene';
+
 
 
 
