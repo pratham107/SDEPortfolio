@@ -1,5 +1,6 @@
 import About from './About';
 import Blog from './Blog';
+import Education from './Education';
 import Experience from './Experience';
 import FloatNav from './FloatNav'
 import Footer from './Footer';
@@ -7,6 +8,7 @@ import Info from './Info'
 import LinkedInPost from './LinkedInPost';
 import Projects from './Projects';
 import TechStack from './TechStack';
+import ThreeScene from './ThreeScene';
 
 
 
@@ -14,13 +16,21 @@ import TechStack from './TechStack';
 const Canvas = ({ theme }) => {
   return (
     <div className="min-h-screen relative">
-          <Info theme={theme}/>
+            <Info theme={theme}/>
         <div className="about mt-8">
             <About theme={theme}/>
         </div>
+         {/* 👇 Add 3D effect here */}
+         {/* <div className="mt-12">
+         <ThreeScene />
+         </div> */}
         <div className="about mt-8">
             <Experience theme={theme}/>
         </div>
+        <div className="about mt-8">
+           <Education/>
+        </div>
+        
         <div className="about mt-8">
            <TechStack theme={theme}/>
         </div>

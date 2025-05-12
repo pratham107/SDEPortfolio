@@ -6,18 +6,18 @@ import { motion } from "framer-motion"
 
 const blogs = [
   {
-    title: "Understanding React Hooks",
+    title: "Understanding OAuth",
     description:
-      "In this blog, I explore React Hooks and how they simplify state and side-effect management in functional components.",
-    link: "https://yourblog.com/understanding-react-hooks",
-    date: "April 2025",
+      "When building modern web or mobile applications, security is a major concern. Among the many tools used to protect user data and identities, OAuth stands out as a powerful and flexible authorization protocol.",
+    link: "https://prathmesh-oauth.hashnode.dev/understanding-oauth-what-it-is-and-how-it-differs-from-traditional-authentication",
+    date: "May 2025",
   },
   {
     title: "JavaScript Best Practices for 2025",
     description:
       "A collection of the most important JavaScript best practices every developer should follow in 2025.",
-    link: "https://yourblog.com/javascript-best-practices",
-    date: "March 2025",
+    link: "https://javascript-best-practices-for-2025.hashnode.dev/javascript-best-practices-for-2025-write-clean-modern-and-performant-code",
+    date: "May 2025",
   },
   {
     title: "Building RESTful APIs with Node.js and Express.js",

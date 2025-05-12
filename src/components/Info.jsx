@@ -43,9 +43,28 @@ const Info = ({ theme }) => {
           <Badges />
         </div>
         <div className="mt-3 flex gap-2">
-          <Button variant="outline" className="border rounded-2xl border-blue-400">
-            Download CV <FaAnglesDown />
-          </Button>
+        <Button variant="outline" className="border rounded-2xl border-blue-400">
+          <a 
+            href="https://drive.google.com/file/d/1piyTAJNDYYc9NNMJ-yR9nQVPKcgXBXAl/view?usp=sharing" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="flex items-center gap-2"
+          >
+            Download CV 
+            <motion.div
+              animate={{
+                y: [0, 4, 0], // Moves up and down
+              }}
+              transition={{
+                duration: 1.2,
+                repeat: Infinity, // Repeat forever
+                repeatType: "loop", // Continually loop the animation
+              }}
+            >
+              <FaAnglesDown />
+            </motion.div>
+          </a>
+        </Button>
           <Drawer>
       <DrawerTrigger asChild>
         <Button variant="outline" className="border rounded-2xl border-blue-400">
