@@ -42,15 +42,19 @@ function App() {
       ]}
       />
       <div
-      className={`flex justify-center items-center ${
+      className={`flex justify-center items-center h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] ${
         loading ? "w-screen h-screen" : ""
       } ${theme === "dark" ? "bg-black" : "bg-white"}`}
     >
-      <div className={`w-full ${loading ? "" : "max-w-4xl p-4"}`}>
-        {loading ? <Loader /> : <Canvas theme={theme} />}
+     
+        <div className={`w-full ${loading ? "" : "max-w-4xl p-4"}`}>
+          {loading ? <Loader /> : <Canvas theme={theme} />}
+      
       </div>
+      
     </div>
     </>
+    
    
   );
 }

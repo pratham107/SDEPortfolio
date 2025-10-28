@@ -60,24 +60,44 @@ const techStackGroups = [
     ],
   },
 ]
-
+const mySkillSet = [
+  "HTML",
+  "CSS",
+  "TAILWIND",
+  "JAVASCRIPT",
+  "REACT.JS",
+  
+]
 //eslint-disable-next-line
 const TechStack = ({theme}) => {
   return (
     <section className="p-6">
       <h2
-  className={`text-xl font-bold mb-6 hover:underline ${
-    theme === 'light' ? 'text-black' : 'text-white'
-  }`}
->Tech Stack</h2>
+        className={`text-xl font-bold mb-6 hover:underline ${
+          theme === "light" ? "text-black" : "text-white"
+        }`}
+      >
+        Tech Stack
+      </h2>
+{/* 
+      <div className="flex gap-2 animate-accordion-down">
+        {mySkillSet.length &&
+          mySkillSet?.map((skill, index) => {
+            return (
+              <p key={Date.now()+index} className="bg-black rounded-2xl text-white p-2">
+                {skill}
+              </p>
+            )
+          })}
+      </div> */}
 
       <Accordion type="multiple" className="w-full space-y-4">
         {techStackGroups.map((group) => (
           <AccordionItem key={group.title} value={group.title}>
-           <AccordionTrigger
-            className={`text-lg font-semibold ${
-                theme === 'light' ? 'text-black' : 'text-white'
-            }`}
+            <AccordionTrigger
+              className={`text-lg font-semibold ${
+                theme === "light" ? "text-black" : "text-white"
+              }`}
             >
               {group.title}
             </AccordionTrigger>
@@ -86,15 +106,20 @@ const TechStack = ({theme}) => {
                 {group.stacks.map((stack) => (
                   <div
                     key={stack.name}
-                    className={`p-4 rounded-xl shadow hover:shadow-md transition ${theme === 'light' ? 'bg-white text-black' : 'bg-black text-white border border-white'}`}
-
+                    className={`p-4 rounded-xl shadow hover:shadow-md transition ${
+                      theme === "light"
+                        ? "bg-white text-black"
+                        : "bg-black text-white border border-white"
+                    }`}
                   >
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
                         <div className="text-2xl">{stack.icon}</div>
                         <span className="font-medium">{stack.name}</span>
                       </div>
-                      <span className="text-sm font-semibold">{stack.level}%</span>
+                      <span className="text-sm font-semibold">
+                        {stack.level}%
+                      </span>
                     </div>
                     <div className="w-full h-2 bg-gray-200 rounded">
                       <motion.div
@@ -113,7 +138,7 @@ const TechStack = ({theme}) => {
         ))}
       </Accordion>
     </section>
-  )
+  );
 }
 
 export default TechStack

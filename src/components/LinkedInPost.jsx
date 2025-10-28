@@ -1,8 +1,8 @@
 import React from "react"
-import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { FaExternalLinkAlt } from "react-icons/fa"
 import { motion } from "framer-motion"
+import { FaExternalLinkAlt } from "react-icons/fa"
+import { Badge } from "./ui/badge"
 
 const linkedinPosts = [
   {
@@ -28,47 +28,99 @@ const linkedinPosts = [
   },
 ]
 
-// eslint-disable-next-line
-const LinkedInPost = ({theme}) => {
+const scrollVariants = {
+  animate: {
+    x: ["0%", "-100%"],
+    transition: {
+      x: {
+        repeat: Infinity,
+        repeatType: "loop",
+        duration: 60,
+        ease: "linear",
+      },
+    },
+  },
+}
+
+const LinkedInPost = ({ theme }) => {
   return (
-    <section className="p-6">
-      <h2 className={`text-xl font-bold mb-6 hover:underline ${theme === 'light' ? 'text-black' : 'text-white'}`}>LinkedIn Posts</h2>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {linkedinPosts.map((post, index) => (
-          <motion.div
-            key={post.title}
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1, duration: 0.4 }}
-            whileHover={{ scale: 1.03 }}
-          >
-          <Card
-            className={`shadow hover:shadow-lg transition min-h-[300px] max-w-[300px] flex flex-col ${
-                theme === 'light' ? 'bg-white text-black' : 'bg-black text-white'
-            }`}
+    <section className="p-8 overflow-hidden">
+      {/* Heading */}
+      <h2
+        className={`text-xl font-bold mb-6 hover:underline ${
+          theme === "light" ? "text-black" : "text-white"
+        }`}
+      >
+        Tech Stack
+      </h2>
+
+      {/* Auto-scroll container */}
+      <div className="relative w-full overflow-hidden">
+        <motion.div
+          className="flex gap-8 w-max"
+          variants={scrollVariants}
+          animate="animate"
+        >
+          {linkedinPosts.concat(linkedinPosts).map((post, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 200 }}
             >
-              <CardHeader>
-                <CardTitle>{post.title}</CardTitle>
-                <p className="text-sm text-muted-foreground">{post.date}</p>
-              </CardHeader>
-              <CardContent className="flex-1">
-                <p className="mb-4 text-sm text-muted-foreground">{post.description}</p>
-              </CardContent>
-              <div className="flex gap-4 p-4">
-                {/* {post.link && (
+              <Card
+                className={`flex flex-col justify-between h-[360px] w-[320px] rounded-2xl border border-transparent shadow-lg hover:shadow-2xl transition-all duration-300 ${
+                  theme === "light"
+                    ? "bg-white text-gray-900 hover:border-blue-300"
+                    : "bg-gradient-to-b from-neutral-900 to-neutral-800 text-gray-100 hover:border-blue-500/30"
+                }`}
+              >
+                <CardHeader className="p-5">
+                  <div className="flex justify-between items-start gap-3">
+                    <CardTitle className="text-lg font-semibold leading-tight hover:text-blue-500 transition-colors duration-300">
+                      {post.title}
+                    </CardTitle>
+                    <Badge
+                      className={`text-xs px-2 py-1 rounded-md ${
+                        theme === "light"
+                          ? "bg-gray-100 text-gray-700"
+                          : "bg-gray-700 text-gray-300"
+                      }`}
+                    >
+                      {post.date}
+                    </Badge>
+                  </div>
+                </CardHeader>
+
+                <CardContent className="px-5 pb-5 flex-1">
+                  <p
+                    className={`text-sm leading-relaxed line-clamp-5 ${
+                      theme === "light" ? "text-gray-700" : "text-gray-400"
+                    }`}
+                  >
+                    {post.description}
+                  </p>
+                </CardContent>
+
+                <div
+                  className={`flex justify-center items-center gap-2 text-sm font-medium py-3 border-t ${
+                    theme === "light"
+                      ? "border-gray-200 text-blue-600 hover:text-blue-800"
+                      : "border-gray-700 text-blue-400 hover:text-blue-300"
+                  } transition-colors duration-300`}
+                >
                   <a
                     href={post.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-sm text-blue-600 hover:underline"
+                    className="flex items-center gap-2"
                   >
-                    <FaExternalLinkAlt /> View Post
+                    <FaExternalLinkAlt size={14} /> View Post
                   </a>
-                )} */}
-              </div>
-            </Card>
-          </motion.div>
-        ))}
+                </div>
+              </Card>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )

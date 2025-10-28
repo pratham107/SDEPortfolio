@@ -8,12 +8,27 @@ import Info from './Info'
 import LinkedInPost from './LinkedInPost';
 import Projects from './Projects';
 import TechStack from './TechStack';
-
+import React from 'react';
 
 
 
 // eslint-disable-next-line react/prop-types
 const Canvas = ({ theme }) => {
+
+   const [showFloatNav, setShowFloatNav] = React.useState(true);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const nearBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
+
+      setShowFloatNav(!nearBottom);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
   return (
     <div className="min-h-screen relative">
             <Info theme={theme}/>
@@ -54,7 +69,7 @@ const Canvas = ({ theme }) => {
 
         {/* Align FloatNav at the bottom center and make it sticky */}
         <div className="flex justify-center items-end fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4 lg:mb-8">
-          <FloatNav theme={theme} />
+          {showFloatNav &&<FloatNav theme={theme} />}
          </div>
 
     </div>

@@ -33,9 +33,7 @@ const Info = ({ theme }) => {
           Hi, I'm Prathmesh <span className="wave text-blue-500">👋</span>
         </h1>
         <h3 className={`text-md ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
-          Software Engineer turned Entrepreneur. <br />
-          I love building things and helping people. <br />
-          Very active on Twitter.
+         <i><b>Software Engineer who loves building impactful products and empowering others.</b> <br />🚀 Always sharing and engaging on Twitter & LinkedIn.</i>
         </h3>
         <TypewriterEffect />
 
@@ -53,7 +51,7 @@ const Info = ({ theme }) => {
             Download CV 
             <motion.div
               animate={{
-                y: [0, 4, 0], // Moves up and down
+                y: [0, 4, 0], 
               }}
               transition={{
                 duration: 1.2,

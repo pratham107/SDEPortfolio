@@ -3,45 +3,47 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa"
 import { motion } from "framer-motion"
+import { Button } from "./ui/button"
 
 const projects = [
   {
-    title: "Hospital Management System",
-    tech: ["React", "PHP", "MySQL", "TailwindCSS"],
-    description:
-      "A full-featured system to manage patient admissions, OT prescriptions, and discharge summaries with role-based access.",
-    github: "https://github.com/yourusername/hospital-management",
-    live: "https://hospital-demo.vercel.app",
-  },
+  title: "Advance Auth",
+  tech: ["React.js", "Express.js", "MongoDB", "JWT"],
+  description:
+    "A secure and scalable full-stack authentication system built using the MERN stack. It includes user registration, login, password reset, and protected routes with role-based access control. The system ensures data privacy through JWT authentication and bcrypt encryption, offering a seamless and secure login experience for users.",
+  github: "https://github.com/yourusername/hospital-management",
+  live: "https://hospital-demo.vercel.app",
+},
+ {
+  title: "Portfolio Website",
+  tech: ["React.js", "TailwindCSS", "Framer Motion"],
+  description:
+    "A modern, fully responsive portfolio website built with React.js and TailwindCSS to showcase my skills, experience, and projects. It features smooth Framer Motion animations, a dark/light theme toggle, and a clean, user-friendly interface focused on performance and accessibility.",
+  github: "https://github.com/yourusername/portfolio",
+  live: "https://yourname.vercel.app",
+},
   {
-    title: "Portfolio Website",
-    tech: ["Next.js", "TailwindCSS", "Framer Motion"],
-    description:
-      "Personal portfolio website showcasing my skills, projects, and experience with beautiful animations.",
-    github: "https://github.com/yourusername/portfolio",
-    live: "https://yourname.vercel.app",
-  },
-  {
-    title: "Blog API with JWT",
-    tech: ["Node.js", "Express", "MongoDB", "JWT"],
-    description:
-      "Secure REST API for managing blog posts and user authentication with JWT.",
-    github: "https://github.com/yourusername/blog-api",
-    live: "",
-  },
+  title: "Eassy Apply",
+  tech: ["React.js", "Node.js", "Express", "MySQL", "JWT"],
+  description:
+    "A full-stack job application platform that simplifies the hiring process. Built with React.js and Node.js, it features secure JWT-based authentication, role management for recruiters and applicants, and MySQL integration for efficient data handling. The system allows users to create profiles, post jobs, and track applications seamlessly.",
+  github: "https://github.com/yourusername/blog-api",
+  live: "https://yourname.vercel.app",
+},
 ]
 
-const Project = ({theme}) => {
+const Project = ({ theme }) => {
   return (
     <section className="p-6">
       <h2
         className={`text-xl font-bold mb-6 hover:underline ${
-            theme === 'light' ? 'text-black' : 'text-white'
+          theme === "light" ? "text-black" : "text-white"
         }`}
-        >
-            Projects
-        </h2>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      >
+        Projects
+      </h2>
+
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
           <motion.div
             key={project.title}
@@ -50,45 +52,81 @@ const Project = ({theme}) => {
             transition={{ delay: index * 0.1, duration: 0.4 }}
             whileHover={{ scale: 1.03 }}
           >
-           <Card
-            className={`shadow hover:shadow-lg transition min-h-[300px] max-w-[300px] flex flex-col ${
-                theme === 'light' ? 'bg-white text-black' : 'bg-black text-white'
-            }`}
+            <Card
+              className={`shadow hover:shadow-lg transition-all duration-300 flex flex-col justify-between
+                h-[350px] w-full rounded-2xl ${
+                theme === "light"
+                  ? "bg-white text-black"
+                  : "bg-neutral-900 text-white"
+              }`}
             >
-              <CardHeader>
-                <CardTitle>{project.title}</CardTitle>
-                <div className="flex flex-wrap gap-2 mt-4">
+              {/* Header */}
+              <CardHeader className="pb-2">
+                <CardTitle className="text-lg font-semibold">
+                  {project.title}
+                </CardTitle>
+                <div className="flex flex-wrap gap-2 mt-3">
                   {project.tech.map((tech) => (
-                    <Badge key={tech} variant="secondary" className="capitalize">
+                    <Badge
+                      key={tech}
+                      variant="secondary"
+                      className="capitalize text-xs px-2 py-0.5"
+                    >
                       {tech}
                     </Badge>
                   ))}
                 </div>
               </CardHeader>
+
+              {/* Description */}
               <CardContent className="flex-1">
-                <p className="mb-4 text-sm text-muted-foreground">{project.description}</p>
+                <p
+                  className={`text-sm leading-relaxed ${
+                    theme === "light"
+                      ? "text-gray-700"
+                      : "text-gray-400"
+                  } line-clamp-4`}
+                >
+                  {project.description}
+                </p>
               </CardContent>
-              <div className="flex gap-4 p-4">
-                {/* {project.github && (
+
+              {/* Footer Buttons */}
+              <div className="flex justify-center items-center gap-3 py-3 border-t border-gray-700/20">
+                <Button
+                  asChild
+                  variant="link"
+                  className="text-blue-500 hover:text-blue-400"
+                >
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-sm text-blue-600 hover:underline"
+                    className="flex items-center gap-1"
                   >
                     <FaGithub /> Code
                   </a>
-                )} */}
-                {/* {project.live && (
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-sm text-green-600 hover:underline"
-                  >
-                    <FaExternalLinkAlt /> Live
-                  </a>
-                )} */}
+                </Button>
+
+                {project.live && (
+                  <>
+                    <span className="text-gray-400">|</span>
+                    <Button
+                      asChild
+                      variant="link"
+                      className="text-green-500 hover:text-green-400"
+                    >
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1"
+                      >
+                        <FaExternalLinkAlt /> Live
+                      </a>
+                    </Button>
+                  </>
+                )}
               </div>
             </Card>
           </motion.div>

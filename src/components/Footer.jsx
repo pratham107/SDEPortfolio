@@ -5,7 +5,7 @@ const Footer = ({ theme }) => {
   return (
     <footer
     className={`py-8 ${
-      theme === 'light' ? 'bg-white text-black' : 'bg-black text-white'
+      theme === 'light' ? 'bg-transparent text-black' : 'bg-black text-white'
     }`}
   >
       <div className="max-w-7xl mx-auto px-4">
@@ -23,7 +23,7 @@ const Footer = ({ theme }) => {
               href="https://github.com/pratham107"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition"
+              className="text-black hover:text-white transition"
             >
               <FaGithub size={20} />
             </a>
@@ -31,7 +31,7 @@ const Footer = ({ theme }) => {
               href="https://www.linkedin.com/in/prathmesh-bhopale-70b091212"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition"
+              className="text-black hover:text-white transition"
             >
               <FaLinkedin size={20} />
             </a>

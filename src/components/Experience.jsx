@@ -32,15 +32,15 @@ const Experience = ({theme}) => {
       >
         <Card className={`shadow-md border rounded-2xl ${theme === 'light' ? 'bg-white text-black' : 'bg-black text-white'}`}>
           <CardHeader>
-            <CardTitle className="text-lg">MVD-Tech</CardTitle>
+            <CardTitle className="text-lg">Tech Solve</CardTitle>
             <CardDescription>
             <Badge
                 variant="secondary"
                 className={`${
                     theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'
-                }`}
+                } rounded-full` }
                 >
-                React.js Developer
+                Software Developer
               </Badge>
             </CardDescription>
           </CardHeader>
@@ -63,7 +63,7 @@ const Experience = ({theme}) => {
                 theme === 'light' ? 'text-gray-500' : 'text-gray-400'
             }`}
             >
-            June 2024 – Present
+            June 2024 – July 2025
           </CardFooter>
         </Card>
       </motion.div>

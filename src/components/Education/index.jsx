@@ -4,10 +4,10 @@ import { motion } from 'framer-motion';
 
 const educationData = [
   {
-    year: "2024 - Passout 👨‍🎓",
+    year: "Batch 2024 - Passout 👨‍🎓",
     Degree: "Bachelor of Engineering",
-    Branch:"Computer Science and Technology",
-    institution: "College of Engineering and Technology, Akola",
+    Branch:"Computer Science and Engineering",
+    institution: `SSES College of Engineering and Technology, Akola (${"MH"})`,
     description: "Focused on software engineering, data structures, and full-stack web development.",
   },
 ];
