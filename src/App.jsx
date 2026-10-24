@@ -12,10 +12,16 @@ function App() {
 
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeout = window.setTimeout(() => {
       setLoading(false);
     }, 2400);
+
+    return () => window.clearTimeout(timeout);
   }, []);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+  }, [theme]);
 
   return (
     <>
@@ -42,16 +48,22 @@ function App() {
       ]}
       />
       <div
-      className={`flex justify-center items-center h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] ${
-        loading ? "w-screen h-screen" : ""
-      } ${theme === "dark" ? "bg-black" : "bg-white"}`}
+      className={`flex justify-center items-center h-full w-full ${
+        theme === "dark"
+          ? "bg-gray-950"
+          : "bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)]"
+      }`}
+      aria-busy={loading}
     >
-     
-        <div className={`w-full ${loading ? "" : "max-w-4xl p-4"}`}>
-          {loading ? <Loader /> : <Canvas theme={theme} />}
-      
+      <div className="w-full max-w-4xl p-4">
+        <Canvas theme={theme} />
       </div>
-      
+
+      {loading && (
+        <div className="fixed inset-0 z-[100]">
+          <Loader />
+        </div>
+      )}
     </div>
     </>
     

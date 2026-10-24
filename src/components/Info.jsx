@@ -18,104 +18,115 @@ import { SiGmail } from 'react-icons/si'
 
 // eslint-disable-next-line react/prop-types
 const Info = ({ theme }) => {
-  console.log(theme)
+  const isDark = theme === 'dark'
+  const cvButtonClass =
+    'h-11 w-36 rounded-md bg-gradient-to-r from-blue-600 to-indigo-600 px-4 text-sm font-semibold text-white shadow-md shadow-blue-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:from-blue-700 hover:to-indigo-700'
+  const contactButtonClass =
+    'h-11 w-36 rounded-md bg-gradient-to-r from-emerald-600 to-teal-500 px-4 text-sm font-semibold text-white shadow-md shadow-emerald-500/20 transition-all duration-200 hover:-translate-y-0.5 hover:from-emerald-700 hover:to-teal-600'
+
   return (
     <motion.section
+      id="top"
+      aria-labelledby="page-title"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
       viewport={{ once: true }}
-      className="mt-6 flex flex-col lg:flex-row items-center lg:justify-between gap-10 px-6"
+      className={`mt-6 grid items-center gap-8 px-6 py-8 sm:px-8 lg:grid-cols-[minmax(0,1fr)_180px] lg:gap-10 ${
+        isDark ? 'text-white' : 'text-slate-900'
+      }`}
     >
-      {/* Text Section */}
-      <div className="text-center lg:text-left space-y-4 max-w-xl">
-      <h1 className={`text-3xl font-bold ${theme === 'light' ? 'text-gray-800' : 'text-white'}`}>
-          Hi, I'm Prathmesh <span className="wave text-blue-500">👋</span>
+      <div className="space-y-4 text-center lg:text-left">
+        <p className={`text-xs font-semibold uppercase tracking-[0.18em] ${isDark ? 'text-blue-300' : 'text-blue-700'}`}>
+          Software Engineer
+        </p>
+        <h1 id="page-title" className="text-3xl font-bold tracking-tight sm:text-4xl">
+          Hi, I&apos;m Prathmesh <span className="wave inline-block text-blue-500" aria-hidden="true">👋</span>
+          <span className="sr-only">, Full-Stack Developer</span>
         </h1>
-        <h3 className={`text-md ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>
-         <i><b>Software Engineer who loves building impactful products and empowering others.</b> <br />🚀 Always sharing and engaging on Twitter & LinkedIn.</i>
-        </h3>
-        <TypewriterEffect />
-
-        <div className="mt-3">
-          <Badges />
+        <p className={`mx-auto max-w-xl text-sm leading-6 sm:text-base lg:mx-0 ${isDark ? 'text-zinc-300' : 'text-slate-600'}`}>
+          I build impactful products and intuitive web experiences, and enjoy sharing what I learn with the developer community.
+        </p>
+        <div className="flex justify-center lg:justify-start">
+          <TypewriterEffect theme={theme} />
         </div>
-        <div className="mt-3 flex gap-2">
-        <Button variant="outline" className="border rounded-2xl border-blue-400">
-          <a 
-            href="https://drive.google.com/file/d/1piyTAJNDYYc9NNMJ-yR9nQVPKcgXBXAl/view?usp=sharing" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="flex items-center gap-2"
+
+        <div className="flex justify-center lg:justify-start">
+          <Badges theme={theme} />
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-3 pt-1 lg:justify-start">
+          <Button
+            asChild
+            className={cvButtonClass}
           >
-            Download CV 
-            <motion.div
-              animate={{
-                y: [0, 4, 0], 
-              }}
-              transition={{
-                duration: 1.2,
-                repeat: Infinity, // Repeat forever
-                repeatType: "loop", // Continually loop the animation
-              }}
+            <a
+              href="https://drive.google.com/file/d/1piyTAJNDYYc9NNMJ-yR9nQVPKcgXBXAl/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <FaAnglesDown />
-            </motion.div>
-          </a>
-        </Button>
+              View my CV <FaAnglesDown className="ml-1" aria-hidden="true" />
+            </a>
+          </Button>
           <Drawer>
-      <DrawerTrigger asChild>
-        <Button variant="outline" className="border rounded-2xl border-blue-400">
-          Hire me <MdOutlineConnectWithoutContact className="ml-2" />
-        </Button>
-      </DrawerTrigger>
-
-      <DrawerContent className="bg-white dark:bg-zinc-900">
-        <div className="mx-auto w-full max-w-md px-6 py-4">
-          <DrawerHeader>
-            <DrawerTitle className="text-xl font-bold text-gray-800 dark:text-white">Contact Me</DrawerTitle>
-            <DrawerDescription className="text-sm text-gray-600 dark:text-gray-300">
-              Let’s build something great together. Feel free to connect 👇
-            </DrawerDescription>
-          </DrawerHeader>
-
-          <div className="mt-6 flex flex-col gap-4 items-center">
-            <Badge className="px-4 py-2 bg-red-500 text-white hover:bg-red-600">
-              <a href="mailto:pbhopale107@gmail.com" className="flex items-center gap-2">
-                <SiGmail /> pbhopale107@gmail.com
-              </a>
-            </Badge>
-
-            <Badge className="px-4 py-2 bg-red-500 text-white hover:bg-red-600">
-              <a href="mailto:work.prathm@gmail.com" className="flex items-center gap-2">
-                <SiGmail /> work.prathm@gmail.com
-              </a>
-            </Badge>
-
-            <Badge className="px-4 py-2 bg-blue-600 text-white hover:bg-blue-700">
-              <a
-                href="https://linkedin.com/in/prathmesh-bhopale-70b091212"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2"
+            <DrawerTrigger asChild>
+              <Button
+                className={contactButtonClass}
               >
-                <BsLinkedin /> LinkedIn
-              </a>
-            </Badge>
-          </div>
-        </div>
-      </DrawerContent>
-    </Drawer>
+                Get in touch <MdOutlineConnectWithoutContact className="ml-1" aria-hidden="true" />
+              </Button>
+            </DrawerTrigger>
+
+            <DrawerContent className="bg-white dark:bg-zinc-900">
+              <div className="mx-auto w-full max-w-md px-6 py-4">
+                <DrawerHeader>
+                  <DrawerTitle className="text-xl font-bold text-gray-800 dark:text-white">Contact Me</DrawerTitle>
+                  <DrawerDescription className="text-sm text-gray-600 dark:text-gray-300">
+                    Let’s build something great together. Feel free to connect 👇
+                  </DrawerDescription>
+                </DrawerHeader>
+
+                <div className="mt-6 flex flex-col items-center gap-4">
+                  <Badge className="bg-red-500 px-4 py-2 text-white hover:bg-red-600">
+                    <a href="mailto:pbhopale107@gmail.com" className="flex items-center gap-2">
+                      <SiGmail aria-hidden="true" /> pbhopale107@gmail.com
+                    </a>
+                  </Badge>
+
+                  <Badge className="bg-red-500 px-4 py-2 text-white hover:bg-red-600">
+                    <a href="mailto:work.prathm@gmail.com" className="flex items-center gap-2">
+                      <SiGmail aria-hidden="true" /> work.prathm@gmail.com
+                    </a>
+                  </Badge>
+
+                  <Badge className="bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
+                    <a
+                      href="https://linkedin.com/in/prathmesh-bhopale-70b091212"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      <BsLinkedin aria-hidden="true" /> LinkedIn
+                    </a>
+                  </Badge>
+                </div>
+              </div>
+            </DrawerContent>
+          </Drawer>
         </div>
       </div>
 
-      {/* Image Section */}
-      <div className="mt-6 lg:mt-0">
+      <div className="mx-auto mt-2 w-36 sm:w-40 lg:mt-0">
         <motion.img
-          src="https://i.ibb.co/v6pnmvH3/Chat-GPT-Image-Apr-24-2025-10-28-24-PM.png"
-          alt="Profile Pic"
-          className="rounded-full w-32 h-32 object-cover shadow-lg hover:scale-110 hover:shadow-xl transition-transform duration-300"
-          whileHover={{ scale: 1.1 }}
+          src="https://lh3.googleusercontent.com/a/ACg8ocJwkylBbJpz_SUuWBFqT3XmGAKFdLK9i8nyr4R4y7UcK-tbrxHw=s120-c"
+          alt="Illustrated portrait of Prathmesh Bhopale"
+          width="256"
+          height="256"
+          className={`aspect-square w-full rounded-full border-4 object-cover shadow-md ${
+            isDark ? 'border-zinc-800' : 'border-white'
+          }`}
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.2 }}
         />
       </div>
     </motion.section>
@@ -123,4 +134,3 @@ const Info = ({ theme }) => {
 }
 
 export default Info
-
