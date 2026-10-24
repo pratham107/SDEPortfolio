@@ -5,7 +5,6 @@ import Experience from './Experience';
 import FloatNav from './FloatNav'
 import Footer from './Footer';
 import Info from './Info'
-import LinkedInPost from './LinkedInPost';
 import Projects from './Projects';
 import TechStack from './TechStack';
 import React from 'react';
@@ -31,43 +30,31 @@ const Canvas = ({ theme }) => {
   
   return (
     <div className="min-h-screen relative">
-            <Info theme={theme}/>
-        <div className="about mt-8">
-            <About theme={theme}/>
+      <header>
+        <Info theme={theme} />
+      </header>
+      <main>
+        <div className="about mt-8" id="about">
+          <About theme={theme} />
         </div>
-         {/* 👇 Add 3D effect here */}
-         {/* <div className="mt-12">
-         <ThreeScene />
-         </div> */}
-        <div className="about mt-8">
-            <Experience theme={theme}/>
+        <div className="about mt-8" id="experience">
+          <Experience theme={theme} />
         </div>
-        <div className="about mt-8">
-           <Education theme={theme}/>
+        <div className="about mt-8" id="education">
+          <Education theme={theme} />
         </div>
-        
-        <div className="about mt-8">
-           <TechStack theme={theme}/>
+        <div className="about mt-8" id="skills">
+          <TechStack theme={theme} />
         </div>
-        <div className="about mt-8">
-           <Projects theme={theme}/>
+        <div className="about mt-8" id="projects">
+          <Projects theme={theme} />
         </div>
-        <div className="about mt-8">
-           <LinkedInPost theme={theme}/>
+        <div className="about mt-8" id="blog">
+          <Blog theme={theme} />
         </div>
-        <div className="about mt-8">
-           <Blog theme={theme}/>
-        </div>
-        <div className="about mt-8">
-           <Footer theme={theme}/>
-        </div>
-        {/* <div className="orbitingCircle mt-56">
-            <OribitingCircle/>
-        </div> */}
+      </main>
+      <Footer theme={theme} />
 
-        
-
-        {/* Align FloatNav at the bottom center and make it sticky */}
         <div className="flex justify-center items-end fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-4 lg:mb-8">
           {showFloatNav &&<FloatNav theme={theme} />}
          </div>

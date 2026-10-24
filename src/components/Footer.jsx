@@ -1,9 +1,10 @@
-import React from 'react'
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
 
+// eslint-disable-next-line react/prop-types
 const Footer = ({ theme }) => {
   return (
     <footer
+    id="contact"
     className={`py-8 ${
       theme === 'light' ? 'bg-transparent text-black' : 'bg-black text-white'
     }`}
@@ -13,7 +14,7 @@ const Footer = ({ theme }) => {
           {/* Left Side: Text and Copyright */}
           <div className="mb-4 sm:mb-0">
             <p className="text-sm">
-              &copy; {new Date().getFullYear()} Prathmesh Bhopale. All rights reserved.
+              &copy; {new Date().getUTCFullYear()} Prathmesh Bhopale. All rights reserved.
             </p>
           </div>
 
@@ -23,7 +24,10 @@ const Footer = ({ theme }) => {
               href="https://github.com/pratham107"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black hover:text-white transition"
+              aria-label="GitHub profile"
+              className={`transition ${
+                theme === 'light' ? 'text-black hover:text-gray-600' : 'text-white hover:text-gray-300'
+              }`}
             >
               <FaGithub size={20} />
             </a>
@@ -31,7 +35,10 @@ const Footer = ({ theme }) => {
               href="https://www.linkedin.com/in/prathmesh-bhopale-70b091212"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black hover:text-white transition"
+              aria-label="LinkedIn profile"
+              className={`transition ${
+                theme === 'light' ? 'text-black hover:text-gray-600' : 'text-white hover:text-gray-300'
+              }`}
             >
               <FaLinkedin size={20} />
             </a>

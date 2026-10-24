@@ -1,63 +1,96 @@
-import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
+import { GraduationCap, MapPin } from 'lucide-react'
 
-const educationData = [
-  {
-    year: "Batch 2024 - Passout 👨‍🎓",
-    Degree: "Bachelor of Engineering",
-    Branch:"Computer Science and Engineering",
-    institution: `SSES College of Engineering and Technology, Akola (${"MH"})`,
-    description: "Focused on software engineering, data structures, and full-stack web development.",
-  },
-];
+const education = {
+  year: 'Batch of 2024',
+  degree: 'Bachelor of Engineering',
+  branch: 'Computer Science and Engineering',
+  institution: 'SSES College of Engineering and Technology',
+  location: 'Akola, Maharashtra',
+  highlights: [
+    'Focused on software engineering principles and practices.',
+    'Studied data structures and core computer science concepts.',
+    'Built knowledge of full-stack web development.',
+    'Applied engineering concepts to designing and developing web applications.',
+  ],
+}
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.2,
-      duration: 0.6,
-      ease: 'easeOut',
-    },
-  }),
-};
+// eslint-disable-next-line react/prop-types
+const Education = ({ theme }) => {
+  const isDark = theme === 'dark'
 
-// eslint-disable-next-line
-const Education = ({theme}) => {
   return (
-    <div className="p-6">
-      <h4 className={`text-xl font-bold font-sans mb-4 hover:underline ${theme === 'light' ? 'text-black' : 'text-white'}`}>Education</h4>
-      <div className="relative border-l-2 border-gray-300 ml-4">
-        {educationData.map((edu, index) => (
-          <motion.div
-            key={index}
-            className="mb-10 ml-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            custom={index}
-            variants={fadeInUp}
-          >
-            <div className="absolute w-4 h-4 bg-blue-600 rounded-full -left-2.5 top-1.5" />
-             <Card className={`shadow-md border rounded-2xl ${theme === 'light' ? 'bg-white text-black' : 'bg-black text-white'}`}>
-              <CardContent className="p-4">
-               <p className={`text-sm ${theme === 'light' ? 'text-black' : 'text-white'}`}>{edu.year}</p>
-              <h3 className={`text-lg font-semibold ${theme === 'light' ? 'text-black' : 'text-white'}`}>{edu.title}</h3>
-              <h3 className={`text-lg font-semibold ${theme === 'light' ? 'text-black' : 'text-white'}`}>{edu.Degree}</h3>
-              <p className={`text-sm ${theme === 'light' ? 'text-black' : 'text-white'}`}>{edu.Branch}</p>
-              <p className={`text-sm ${theme === 'light' ? 'text-black' : 'text-white'}`}>{edu.institution}</p>
-              <p className={`mt-2 text-sm ${theme === 'light' ? 'text-black' : 'text-white'}`}>{edu.description}</p>
+    <section className="p-4 sm:p-6" aria-labelledby="education-heading">
+      <h2
+        id="education-heading"
+        className={`mb-8 text-2xl font-bold tracking-tight ${
+          isDark ? 'text-white' : 'text-slate-900'
+        }`}
+      >
+        Education
+      </h2>
 
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  );
-};
+      <motion.article
+        initial={{ opacity: 0, y: 28 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55, ease: 'easeOut' }}
+        viewport={{ once: true, amount: 0.15 }}
+        className="min-w-0"
+      >
+        <div className="grid w-full grid-cols-1 gap-y-2 sm:grid-cols-[minmax(0,1fr)_auto] sm:gap-x-6">
+          <div>
+            <h3 className={`text-lg font-bold ${
+              isDark ? 'text-white' : 'text-slate-900'
+            }`}>
+              {education.degree}
+            </h3>
+            <p className={`mt-1 text-sm font-medium ${
+              isDark ? 'text-blue-300' : 'text-blue-700'
+            }`}>
+              {education.branch}
+            </p>
+            <p className={`mt-3 text-sm font-semibold ${
+              isDark ? 'text-zinc-200' : 'text-slate-800'
+            }`}>
+              {education.institution}
+            </p>
+            <p className={`mt-1 flex items-center gap-1.5 text-sm ${
+              isDark ? 'text-zinc-400' : 'text-slate-500'
+            }`}>
+              <MapPin size={14} aria-hidden="true" />
+              {education.location}
+            </p>
+          </div>
 
-export default Education;
+          <div className="flex items-center gap-2 text-sm sm:col-start-2 sm:row-start-1 sm:justify-self-end">
+            <GraduationCap
+              className={isDark ? 'text-blue-300' : 'text-blue-600'}
+              size={18}
+              aria-hidden="true"
+            />
+            <span className={`rounded-full px-3 py-1 text-xs font-semibold ${
+              isDark ? 'bg-blue-400/10 text-blue-300' : 'bg-blue-50 text-blue-700'
+            }`}>
+              {education.year}
+            </span>
+          </div>
+        </div>
+
+        <ul className={`mt-4 space-y-2 text-sm leading-6 ${
+          isDark ? 'text-zinc-300' : 'text-slate-600'
+        }`}>
+          {education.highlights.map((highlight) => (
+            <li key={highlight} className="flex items-start gap-3">
+              <span className="shrink-0 text-lg font-bold leading-6 text-blue-600" aria-hidden="true">
+                •
+              </span>
+              <span>{highlight}</span>
+            </li>
+          ))}
+        </ul>
+      </motion.article>
+    </section>
+  )
+}
+
+export default Education
